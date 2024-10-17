@@ -1,0 +1,34 @@
+INSERT INTO SVIEN (MASV, TEN, NAM, KHOA)
+VALUES 
+('DTH235774', 'Nguyen Tri Thien', 2, 'CNTT'),
+('DTH235758', 'Nguyen Vo Thanh Son', 2, 'CNTT'),
+('DTH235773', 'Nguyen Anh Thien', 2, 'CNTT');
+INSERT INTO MHOC (MAMH, TEN_MH, SOTINCHI, MAMH_TRUOC)
+VALUES 
+('MAT101', 'Toan A3', 3, NULL),
+('LAP202', 'Lap Trinh Java', 4, 'NULL'),
+('KTL303', 'Kinh Te Chinh Tri', 3, NULL);
+INSERT INTO HOCPHAN (MAHP, MAMH, HOCKY, NAMHOC, GV)
+VALUES 
+(1, 'MAT101', 1, '2023-2024', 'Nguyen Thi Quynh'),
+(2, 'LAP202', 2, '2023-2024', 'Tran Thi E'),
+(3, 'KTL303', 1, '2023-2024', 'Le Van Phung');
+INSERT INTO KETQUA (MASV, MAHP, DIEM)
+VALUES 
+('DTH2357741', 1, 8.5),
+('DTH235758', 2, 7.0),
+('DTH235774', 3, 9.0),
+('DTH235773', 2, 6.5);
+-- Kiểm tra bảng SVIEN
+SELECT * FROM SVIEN;
+
+-- Kiểm tra bảng MHOC
+SELECT * FROM MHOC;
+
+-- Kiểm tra bảng HOCPHAN
+SELECT * FROM HOCPHAN;
+
+-- Kiểm tra bảng KETQUA
+SELECT * FROM KETQUA;
+
+

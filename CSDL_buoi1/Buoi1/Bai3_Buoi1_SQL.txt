@@ -1,0 +1,4 @@
+Thêm bộ (GD002, Nguyen Van, Nguyen, 2100, false, 01/19/1984, VMR, GD) vào table NHANVIEN
+Cách làm : 
+INSERT INTO NHANVIEN (Manv, Holot, Ten, Luong, Phai, Ngsinh, Macv, Mapb)
+VALUES ('GD002', 'Nguyen Van', 'Nguyen', 2100, 0, '1984-01-19', 'VMR', 'GD');
