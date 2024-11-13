@@ -1,0 +1,45 @@
+-- Tạo cơ sở dữ liệu QLNV
+CREATE DATABASE QLNV
+ON PRIMARY 
+(
+    NAME = 'QLNV_data',
+    FILENAME = 'Z:\QLNV_data.mdf',
+    SIZE = 4MB,
+    FILEGROWTH = 2MB,
+    MAXSIZE = 20MB
+)
+LOG ON 
+(
+    NAME = 'QLNV_log',
+    FILENAME = 'Z:\QLNV_log.ldf',
+    SIZE = 2MB,
+    FILEGROWTH = 1MB,
+    MAXSIZE = 10MB
+);
+
+-- Sử dụng cơ sở dữ liệu QLNV
+USE QLNV;
+
+-- Tạo bảng PHONG
+CREATE TABLE PHONG (
+    Maphg CHAR(2) PRIMARY KEY,
+    Tenphg VARCHAR(20) NOT NULL
+);
+
+-- Tạo bảng CONGVIEC
+CREATE TABLE CONGVIEC (
+    Macv CHAR(3) PRIMARY KEY,
+    Tencv VARCHAR(20) NOT NULL
+);
+
+-- Tạo bảng NHANVIEN
+CREATE TABLE NHANVIEN (
+    Manv CHAR(5) PRIMARY KEY,
+    Holot VARCHAR(15) NOT NULL,
+    Ten VARCHAR(10) NOT NULL,
+    Luong SMALLINT,
+    Phai BIT,
+    Ngsinh DATE,
+    Macv CHAR(3) FOREIGN KEY REFERENCES CONGVIEC(Macv),
+    Mapb CHAR(2) FOREIGN KEY REFERENCES PHONG(Maphg)
+);

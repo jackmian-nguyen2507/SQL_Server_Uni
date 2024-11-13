@@ -1,0 +1,20 @@
+//Nhap du lieu cho bang PHONG
+INSERT INTO PHONG (Maphg, Tenphg) VALUES 
+('IT', 'Công nghệ thông tin'),
+('HR', 'Nhân sự'),
+('FIN', 'Tài chính'),
+('MK', 'Marketing');
+//Nhap du lieu cho bang CONGVIEC
+INSERT INTO CONGVIEC (Macv, Tencv) VALUES 
+('DEV', 'Lập trình viên'),
+('PM', 'Quản lý dự án'),
+('HRM', 'Quản lý nhân sự'),
+('FINM', 'Quản lý tài chính');
+//Nhap du lieu cho bang NHANVIEN
+INSERT INTO NHANVIEN (Manv, Holot, Ten, Luong, Phai, Ngsinh, Macv, Mapb, Email) VALUES 
+('NV001', 'Nguyen Van', 'A', 2500, 'nam', '1984-01-19', 'DEV', 'IT', 'nguyena@example.com'),
+('NV002', 'Tran Thi', 'B', 3000, 'nu', '1990-05-12', 'PM', 'HR', 'tranb@example.com'),
+('NV003', 'Le Van', 'C', 2800, 'nam', '1988-09-23', 'HRM', 'HR', 'lec@example.com'),
+('NV004', 'Pham Minh', 'D', 3200, 'nam', '1985-02-14', 'FINM', 'FIN', 'phamd@example.com');
+
+

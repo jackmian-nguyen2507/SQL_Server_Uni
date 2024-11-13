@@ -1,0 +1,33 @@
+CREATE DATABASE QLNV;
+GO
+
+USE QLNV;
+GO
+CREATE TABLE PHONG (
+    Maphg CHAR(2) CHECK (Maphg LIKE '[A-Z][A-Z]'), -- 2 ký tự chữ
+    Tenphg NVARCHAR(20) NOT NULL, -- Tên phòng không được rỗng
+    CONSTRAINT UQ_Tenphg UNIQUE (Tenphg), -- Tên phòng phải duy nhất
+    PRIMARY KEY (Maphg) -- Khóa chính là Maphg
+);
+CREATE TABLE CONGVIEC (
+    Macv CHAR(3) CHECK (Macv LIKE '[A-Z][A-Z][A-Z]'), -- 3 ký tự chữ
+    Tencv NVARCHAR(20) NOT NULL, -- Tên công việc không được rỗng
+    CONSTRAINT UQ_Tencv UNIQUE (Tencv), -- Tên công việc phải duy nhất
+    PRIMARY KEY (Macv) -- Khóa chính là Macv
+);
+CREATE TABLE NHANVIEN (
+    Manv CHAR(5) CHECK (Manv LIKE '[A-Z][A-Z][0-9][0-9][0-9]'), -- 2 ký tự chữ và 3 ký tự số
+    Holot NVARCHAR(15) NOT NULL, -- Họ lót không được rỗng
+    Ten NVARCHAR(10) NOT NULL, -- Tên không được rỗng
+    Luong SMALLINT CHECK (Luong > 0), -- Lương phải lớn hơn 0
+    Phai NVARCHAR(3) DEFAULT 'nam', -- Giới tính, mặc định là 'nam'
+    Ngsinh DATE, -- Ngày sinh
+    Macv CHAR(3), -- Mã công việc
+    Mapb CHAR(2), -- Mã phòng ban
+    Email NVARCHAR(50) NOT NULL, -- Email không được rỗng
+    CONSTRAINT UQ_Email UNIQUE (Email), -- Email phải duy nhất
+    CONSTRAINT CHK_Email CHECK (Email NOT LIKE '% %'), -- Email không chứa khoảng trắng
+    PRIMARY KEY (Manv), -- Khóa chính là Manv
+    FOREIGN KEY (Macv) REFERENCES CONGVIEC(Macv), -- Khóa ngoại tham chiếu đến bảng CONGVIEC
+    FOREIGN KEY (Mapb) REFERENCES PHONG(Maphg) -- Khóa ngoại tham chiếu đến bảng PHONG
+);
